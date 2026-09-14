@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DISICIPLINE</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body class = "note-page">
+    <nav>
+      <a href="index.html" class = "logo">DICIPLINE</a>
+       <a href="note.html"class = "note-link">NOTE</a>
+    </nav>
+    <main class="note-container">
+      <div class="note-header">
+        <span>note</span>
+        <button onclick="addNote()">add notes</button>
+      </div>
+
+      <div class="timer">
+        <span id="time">24:00</span>
+
+        <button onclick="startTimer()">START</button>
+        <button onclick="resetTimer()">RESET</button>
+      </div>
+      <div class = "progress-section">
+        <div class = "progress-header">
+          <span>progress</span>
+          <span id = "progress-text">0%</span>
+        </div>
+        <div class = "progress-bar">
+          <div id = "progress-fill"></div>
+        </div>
+      </div>
+      <div id="notes" class = "notes">
+        <label class="note-item">
+          <input type="checkbox" onchange="updateProgress()">
+          <span>LOREM</span>
+        </label>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
