@@ -1,0 +1,271 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #1d1d1d;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+}
+ nav {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    z-index: 10;
+    right: 30px;
+ }
+ .logo,
+  .note-link {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 20px;
+      font-weight: bold;
+  }
+.note-link:hover {
+    text-decoration: underline;
+}
+.note-page {
+  min-height: 100vh;
+  padding: 100px 30px 30px;
+}
+
+.note-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.note-header button {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+.note-header button:hover {
+  text-decoration: underline;
+}
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-left: 8%;
+    background-image: url("bekgron.jpg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.hero h1 {
+  position: relative;
+  font-size: 55px;
+  line-height: 0.9;
+  max-width: 600px;
+}
+.timer {
+  width: 100%;
+  background: #050505;
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+#time {
+  font-size: 60px;
+  font-weight: bold;
+  margin-right: auto;
+}
+
+.timer button {
+  border: 1px solid #777;
+  background: #eee;
+  color: #111;
+  padding: 8px 15px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.timer button:hover {
+  background: white;
+}
+.notes {
+  width: 100%;
+  background: #050505;
+  padding: 15px 25px;
+}
+
+.note-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 0;
+  border-bottom: 1px solid #333;
+  font-size: 16px;
+}
+
+.note-item:last-child {
+  border-bottom: none;
+}
+
+.note-item input {
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+
+.note-item input:checked + span {
+  color: #666;
+  text-decoration: line-through;
+}
+.note-container {
+  width: 100%;
+  min-height: calc(100vh - 130px);
+  padding: 40px;
+  border: 1px solid #555;
+  background-image:
+    linear-gradient(#333 1px, transparent 1px),
+    linear-gradient(90deg, #333 1px, transparent 1px);
+  background-size: 25px 25px;
+}
+.edit-btn {
+  margin-left: auto;
+  border: 1px solid #777;
+  background: transparent;
+  color: white;
+  padding: 5px 10px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.edit-btn:hover {
+  background: white;
+  color: #111;
+}
+.progress-section { 
+  width: 100%; 
+  background: #050505; 
+  padding: 20px 25px; 
+  margin-bottom: 20px; 
+} 
+.progress-header { 
+  display: flex; 
+  justify-content: space-between; 
+  margin-bottom: 10px; 
+  font-size: 14px; 
+  font-weight: bold; 
+}
+.progress-bar { width: 100%; 
+  height: 10px; 
+  background: #333; 
+  overflow: hidden; 
+} 
+#progress-fill { 
+  width: 0%; 
+  height: 100%; 
+  background: white; 
+  transition: width 0.3s ease; 
+}
+/* =====================
+   3D NOTE CONTAINER
+===================== */
+
+.note-page {
+  perspective: 1200px;
+}
+
+.note-container {
+  transform-style: preserve-3d;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+/* Efek ketika mouse berada di atas card */
+.note-container:hover {
+  box-shadow:
+    0 30px 70px rgba(0, 0, 0, 0.7);
+}
+
+/* =====================
+   3D TIMER
+===================== */
+
+.timer {
+  transform: translateZ(25px);
+  transition: transform 0.3s ease;
+}
+
+.timer:hover {
+  transform: translateZ(40px);
+}
+
+/* =====================
+   3D PROGRESS
+===================== */
+
+.progress-section {
+  transform: translateZ(20px);
+  transition: transform 0.3s ease;
+}
+
+.progress-section:hover {
+  transform: translateZ(35px);
+}
+/* =====================
+   3D NOTES
+===================== */
+
+.note-item {
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease;
+}
+
+.note-item:hover {
+  transform: translateX(8px) translateZ(20px);
+  background: #111;
+}
+
+/* =====================
+   3D BUTTON
+===================== */
+
+.timer button,
+.note-header button,
+.edit-btn {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.timer button:hover,
+.note-header button:hover,
+.edit-btn:hover {
+  transform: translateY(-3px) translateZ(15px);
+  box-shadow:
+    0 8px 15px rgba(0, 0, 0, 0.4);
+}
+
+.timer button:active,
+.note-header button:active,
+.edit-btn:active {
+  transform: translateY(1px);
+}
